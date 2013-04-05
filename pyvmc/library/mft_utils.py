@@ -352,6 +352,7 @@ def dx2minusy2_pairing_pattern(lattice, site1, site2):
 # hf is for 'half-filling' since the function currently solves for the root of Tz: Tz=0 (fdagf=1)
 # FIXME: have desired average fdagf or Tvec be a parameter
 def did_hf_bcs_theory(lattice, boundary_conditions, t1, delta1, mu0_start=0, mu0=None, delta0=0, t2=0, delta2=0, t3=0, delta3=0, norm=None):
+    assert len(lattice) % 2 == 0
 
     delta_offsite = \
         create_delta_matrix(lattice, boundary_conditions, delta1, did_pairing_pattern, lattice.nearest_neighbors, 'singlet') + \
@@ -390,6 +391,7 @@ def did_hf_bcs_theory(lattice, boundary_conditions, t1, delta1, mu0_start=0, mu0
 # hf is for 'half-filling' since the function currently solves for the root of Tz: Tz=0 (fdagf=1)
 # FIXME: have desired average fdagf or Tvec be a parameter
 def dx2minusy2_hf_bcs_theory(lattice, boundary_conditions, t1, delta1, mu0_start=0, mu0=None, delta0=0, t2=0, delta2=0, t3=0, delta3=0, norm=None):
+    assert len(lattice) % 2 == 0
 
     delta_offsite = \
         create_delta_matrix(lattice, boundary_conditions, delta1, dx2minusy2_pairing_pattern, lattice.nearest_neighbors, 'singlet') + \
